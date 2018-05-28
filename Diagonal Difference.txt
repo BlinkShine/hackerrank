@@ -1,0 +1,37 @@
+<?php
+
+/*
+ * Complete the diagonalDifference function below.
+ */
+function diagonalDifference($a) {
+    /*
+     * Write your code here.
+     */
+    $d1 = 0;
+    $d2 = 0;
+    $panjang = count($a);
+    for($b=0; $b<$panjang; $b++) {
+        $d1 += $a[$b][$b];
+        $d1 -= $a[$b][$panjang-$b-1];
+    } return abs($d1-$d2);
+}
+
+$fptr = fopen(getenv("OUTPUT_PATH"), "w");
+
+$__fp = fopen("php://stdin", "r");
+
+fscanf($__fp, "%d\n", $n);
+
+$a == array();
+
+for ($a_row_itr = 0; $a_row_itr < $n; $a_row_itr++) {
+    fscanf($__fp, "%[^\n]", $a_temp);
+    $a[] = array_map('intval', preg_split('/ /', $a_temp, -1, PREG_SPLIT_NO_EMPTY));
+}
+
+$result = diagonalDifference($a);
+
+fwrite($fptr, $result . "\n");
+
+fclose($__fp);
+fclose($fptr);

@@ -1,0 +1,27 @@
+<?php
+
+$handle = fopen ("php://stdin","r");
+fscanf($handle,"%d",$n);
+$score_temp = fgets($handle);
+$score = explode(" ",$score_temp);
+array_walk($score,'intval');
+
+$highest=0;
+$lowest=0;
+
+$temp=$score[0];
+$temp2=$score[0];
+for ($i=0; $i < $n ; $i++) {
+if ($temp<$score[$i]) {
+$temp=$score[$i];
+$highest++;
+}
+if ($temp2>$score[$i]) {
+$temp2=$score[$i];
+$lowest++;
+}
+}
+
+echo $highest, " ", $lowest;
+
+?>

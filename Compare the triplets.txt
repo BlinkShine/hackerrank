@@ -1,0 +1,59 @@
+<?php
+
+/*
+ * Complete the solve function below.
+ */
+function solve($a0, $a1, $a2, $b0, $b1, $b2) {
+    /*
+     * Write your code here.
+     */
+    $alice = 0;
+    $bob = 0;
+    if($a0 > $b0) {
+        $alice += 1;
+    } elseif($a0 < $b0) {
+        $bob += 1;
+    } 
+    
+    if($a1 > $b1) {
+        $alice += 1;
+    } elseif($a1 < $b1) {
+        $bob += 1;
+    } 
+    
+    if($a2 > $b2) {
+        $alice += 1;
+    } elseif($a2 < $b2) {
+        $bob += 1;
+    }
+    return array($alice,$bob);
+}
+
+$fptr = fopen(getenv("OUTPUT_PATH"), "w");
+
+$__fp = fopen("php://stdin", "r");
+
+fscanf($__fp, "%[^\n]", $a0A1A2_temp);
+$a0A1A2 = explode(' ', $a0A1A2_temp);
+
+$a0 = intval($a0A1A2[0]);
+
+$a1 = intval($a0A1A2[1]);
+
+$a2 = intval($a0A1A2[2]);
+
+fscanf($__fp, "%[^\n]", $b0B1B2_temp);
+$b0B1B2 = explode(' ', $b0B1B2_temp);
+
+$b0 = intval($b0B1B2[0]);
+
+$b1 = intval($b0B1B2[1]);
+
+$b2 = intval($b0B1B2[2]);
+
+$result = solve($a0, $a1, $a2, $b0, $b1, $b2);
+
+fwrite($fptr, implode(" ", $result) . "\n");
+
+fclose($__fp);
+fclose($fptr);

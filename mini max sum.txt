@@ -1,0 +1,24 @@
+<?php
+
+// Complete the miniMaxSum function below.
+function miniMaxSum($arr) {
+    sort($sum);
+    $total= array_sum($arr);
+    $newsum=[];
+    for ($i=0; $i < count($arr); $i++) {
+        $newsum[] = $total-$arr[$i];
+    }
+    $min = min($newsum);
+    $max = max($newsum);
+    echo $min .' '. $max;
+}
+
+$stdin = fopen("php://stdin", "r");
+
+fscanf($stdin, "%[^\n]", $arr_temp);
+
+$arr = array_map('intval', preg_split('/ /', $arr_temp, -1, PREG_SPLIT_NO_EMPTY));
+
+miniMaxSum($arr);
+
+fclose($stdin);
